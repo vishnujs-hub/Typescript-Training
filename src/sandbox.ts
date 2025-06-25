@@ -40,3 +40,30 @@ const square = (a: number) => {
      console.log(a * a)
 }
 square(5);
+
+// 6.Define an array of numbers and double each element with array function
+ const array: number[] = [2,3,4];
+ const newArray =  array.map((value:number) =>(
+    value * 2
+ ))
+console.log(newArray)
+
+// 7.Define an array that stores numbers/string and loop through the array to print the elements
+const mixedArray: (string | number)[] = [2,"hello", 4 , "world"]
+mixedArray.forEach((value: number | string) => (
+    console.log(value)
+))
+
+// 8.Define the type of Product object.Create an array containing different product objects.
+// Loop through the array and print the product details
+type Product = {
+    id : number,
+    name: string,
+}
+const products: Product[] = [{ id : 1,
+    name: "laptop"},{ id : 2,
+        name: "mouse"}, {id : 3,
+            name: "keyboard"}]
+products.map((item: Product)=>(
+    console.log(item.id + " " + item.name)
+))

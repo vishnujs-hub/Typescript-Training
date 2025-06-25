@@ -37,3 +37,15 @@ const square = (a) => {
     console.log(a * a);
 };
 square(5);
+// 6.Define an array of numbers and double each element with array function
+const array = [2, 3, 4];
+const newArray = array.map((value) => (value * 2));
+console.log(newArray);
+// 7.Define an array that stores numbers/string and loop through the array to print the elements
+const mixedArray = [2, "hello", 4, "world"];
+mixedArray.forEach((value) => (console.log(value)));
+const products = [{ id: 1,
+        name: "laptop" }, { id: 2,
+        name: "mouse" }, { id: 3,
+        name: "keyboard" }];
+products.map((item) => (console.log(item.id + " " + item.name)));
