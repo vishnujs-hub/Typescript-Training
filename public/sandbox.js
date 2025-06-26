@@ -136,3 +136,49 @@ student1.addSubjectScore("Science", 80);
 student1.addSubjectScore("English", 85);
 const studentResult = student1.getFinalResult();
 console.log("result", studentResult, "studentDetails", student1);
+// Assignment on enum and Interface
+// Define an enum TaskStatus
+// enum TaskStatus {
+//   Pending = "Pending",
+//   InProgress = "InProgress",
+//   Completed = "Completed"
+// }
+// Define interface Task with properties id,title,description(optional property)
+// status(of type TaskStatus) and dueDate
+// Create an array of tasks and list out pending task with array filter method
+var TaskStatus;
+(function (TaskStatus) {
+    TaskStatus["Pending"] = "Pending";
+    TaskStatus["InProgress"] = "InProgress";
+    TaskStatus["Completed"] = "Completed";
+})(TaskStatus || (TaskStatus = {}));
+const tasks = [
+    {
+        id: 1,
+        title: "Finish TypeScript assignment",
+        description: "Complete enum and interface task",
+        status: TaskStatus.Pending,
+        dueDate: new Date("2025-06-30"),
+    },
+    {
+        id: 2,
+        title: "Prepare for meeting",
+        status: TaskStatus.InProgress,
+        dueDate: new Date("2025-06-27"),
+    },
+    {
+        id: 3,
+        title: "Submit report",
+        description: "Quarterly performance report",
+        status: TaskStatus.Completed,
+        dueDate: new Date("2025-06-25"),
+    },
+    {
+        id: 4,
+        title: "Review PRs",
+        status: TaskStatus.Pending,
+        dueDate: new Date("2025-06-28"),
+    },
+];
+const pendingTasks = tasks.filter((task) => task.status === TaskStatus.Pending);
+console.log(pendingTasks);
