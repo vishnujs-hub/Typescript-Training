@@ -132,5 +132,7 @@ class Student {
 }
 const student1 = new Student(1, "Alice");
 student1.addSubjectScore("Maths", 90);
+student1.addSubjectScore("Science", 80);
+student1.addSubjectScore("English", 85);
 const studentResult = student1.getFinalResult();
 console.log("result", studentResult, "studentDetails", student1);
