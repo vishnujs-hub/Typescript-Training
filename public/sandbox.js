@@ -39,13 +39,67 @@ const square = (a) => {
 square(5);
 // 6.Define an array of numbers and double each element with array function
 const array = [2, 3, 4];
-const newArray = array.map((value) => (value * 2));
+const newArray = array.map((value) => value * 2);
 console.log(newArray);
 // 7.Define an array that stores numbers/string and loop through the array to print the elements
 const mixedArray = [2, "hello", 4, "world"];
-mixedArray.forEach((value) => (console.log(value)));
-const products = [{ id: 1,
-        name: "laptop" }, { id: 2,
-        name: "mouse" }, { id: 3,
-        name: "keyboard" }];
-products.map((item) => (console.log(item.id + " " + item.name)));
+mixedArray.forEach((value) => console.log(value));
+const products = [
+    { id: 1, name: "laptop" },
+    { id: 2, name: "mouse" },
+    { id: 3, name: "keyboard" },
+];
+products.map((item) => console.log(item.id + " " + item.name));
+const employeeArray = [
+    {
+        id: 1,
+        name: "Alice Johnson",
+        department: {
+            id: 101,
+            name: "Engineering",
+        },
+        hireDate: "2022-06-15",
+    },
+    {
+        id: 2,
+        name: "Brian Smith",
+        department: {
+            id: 102,
+            name: "Marketing",
+        },
+        hireDate: "2023-01-10",
+    },
+    {
+        id: 3,
+        name: "Carla Gomez",
+        department: {
+            id: 103,
+            name: "Human Resources",
+        },
+        hireDate: "2021-09-01",
+    },
+    {
+        id: 4,
+        name: "Daniel Lee",
+        department: {
+            id: 104,
+            name: "Finance",
+        },
+        hireDate: "2020-03-20",
+    },
+    {
+        id: 5,
+        name: "Eva Patel",
+        department: {
+            id: 105,
+            name: "Research and Development",
+        },
+        hireDate: "2024-09-12",
+    },
+];
+const result = employeeArray.filter((emp) => {
+    const hireDate = new Date(emp.hireDate);
+    const cutoffDate = new Date("2024-08-01");
+    return hireDate < cutoffDate;
+});
+console.log("employee before august", result);
