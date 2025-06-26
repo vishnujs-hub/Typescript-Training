@@ -127,3 +127,38 @@ const result = employeeArray.filter((emp: Employee) => {
   return hireDate < cutoffDate;
 });
 console.log("employee before august", result);
+
+// Define a class Student with id,name,marks (tuple of subject and score), and grade.
+// Define constructor to initialise id,name
+// Define a method to add suject and score.
+// Define private method to calculate average.
+// Define a method that return a tuple of name and final result (pass/fail).
+class Student {
+  id: number;
+  name: string;
+  marks: [string, number][] = [];
+  grade: string | null = null;
+
+  constructor(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+  addSubjectScore(subject: string, score: number): void {
+    this.marks.push([subject, score]);
+  }
+
+  private calculateAverage(): number {
+    if (this.marks.length === 0) return 0;
+    const total = this.marks.reduce((sum, [_, score]) => sum + score, 0);
+    return total / this.marks.length;
+  }
+  getFinalResult(): [string, string] {
+    const average = this.calculateAverage();
+    const result = average >= 40 ? "Pass" : "Fail";
+    return [this.name, result];
+  }
+}
+const student1 = new Student(1, "Alice");
+student1.addSubjectScore("Maths", 90);
+const studentResult = student1.getFinalResult();
+console.log("result", studentResult, "studentDetails", student1);
