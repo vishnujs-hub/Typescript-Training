@@ -327,3 +327,56 @@ function getProduct(): ApiResponse<ProductObj> {
 }
 console.log(getUser());
 console.log(getProduct());
+
+// Define a class User id,name,email and method getUser to print the information
+// Define a class Admin as sub class of User also define accessLevel and setAccessLevel method in it. Create admin and user object
+// Base class
+class UserDetails {
+  id: number;
+  name: string;
+  email: string;
+
+  constructor(id: number, name: string, email: string) {
+    this.id = id;
+    this.name = name;
+    this.email = email;
+  }
+
+  getUserDetails(): void {
+    console.log(
+      "userDetails",
+      `Id ${this.id} whose name is ${this.name} and email ${this.email}`
+    );
+  }
+}
+
+// Subclass
+class Admin extends UserDetails {
+  accessLevel: string;
+
+  constructor(id: number, name: string, email: string, accessLevel: string) {
+    super(id, name, email);
+    this.accessLevel = accessLevel;
+  }
+
+  setAccessLevel(level: string): void {
+    this.accessLevel = level;
+  }
+
+  getUserDetails(): void {
+    console.log(
+      "AdminDetails",
+      `Id ${this.id} whose name is ${this.name} and email ${this.email} access Level ${this.accessLevel}`
+    );
+  }
+}
+
+const newUser = new UserDetails(1, "John", "john@xmple.com");
+newUser.getUserDetails();
+
+const admin1 = new Admin(2, "Bob Admin", "bob@admin.com", "superuser");
+admin1.getUserDetails();
+
+// Updating access level
+admin1.setAccessLevel("administrator");
+admin1.getUserDetails();
