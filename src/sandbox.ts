@@ -283,3 +283,47 @@ emp.addAttendance("2025-06-26", attendanceStatus.Present);
 
 console.log("Attendance Records:", emp.getAttendance());
 console.log("Total Payroll: ₹", emp.payrollCalculation());
+
+// Define a generic read only api response interface with
+// http status code (type number)
+// success (string)
+// data (generic type)
+// define functions getUser that will return user object as generic response
+// getProduct that will return product object as generic response.
+interface ApiResponse<T> {
+  readonly statusCode: number;
+  readonly success: string;
+  readonly data: T;
+}
+interface User {
+  id: number;
+  name: string;
+}
+interface ProductObj {
+  id: number;
+  productName: string;
+}
+function getUser(): ApiResponse<User> {
+  const user: User = {
+    id: 1,
+    name: "Mathew",
+  };
+  return {
+    statusCode: 200,
+    success: "true",
+    data: user,
+  };
+}
+function getProduct(): ApiResponse<ProductObj> {
+  const product: ProductObj = {
+    id: 1,
+    productName: "Laptop",
+  };
+  return {
+    statusCode: 200,
+    success: "true",
+    data: product,
+  };
+}
+console.log(getUser());
+console.log(getProduct());

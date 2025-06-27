@@ -224,3 +224,27 @@ emp.addAttendance("2025-06-25", attendanceStatus.Leave);
 emp.addAttendance("2025-06-26", attendanceStatus.Present);
 console.log("Attendance Records:", emp.getAttendance());
 console.log("Total Payroll: ₹", emp.payrollCalculation());
+function getUser() {
+    const user = {
+        id: 1,
+        name: "Mathew",
+    };
+    return {
+        statusCode: 200,
+        success: "true",
+        data: user,
+    };
+}
+function getProduct() {
+    const product = {
+        id: 1,
+        productName: "Laptop",
+    };
+    return {
+        statusCode: 200,
+        success: "true",
+        data: product,
+    };
+}
+console.log(getUser());
+console.log(getProduct());
