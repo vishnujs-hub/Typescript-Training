@@ -182,3 +182,45 @@ const tasks = [
 ];
 const pendingTasks = tasks.filter((task) => task.status === TaskStatus.Pending);
 console.log(pendingTasks);
+// In an employee payroll application define an enum for attendance status by including the following status
+// Present = "Present",
+// Leave = "Leave"
+// Define an interface, say EmployeeInterface that  contains
+// variables id,name,email and methods addAttendance that will accept parameters
+// date and enum status
+// getAttendance which will return the tuple array of attendenceRecord
+// Define class ContractEmployee which implements EmployeeInterface.
+// Declare attendanceRecord tuple array with date and enum status
+// Define constructor
+// Define interface methods
+// define payrollCaluclation method daily wage is 360Rs.
+var attendanceStatus;
+(function (attendanceStatus) {
+    attendanceStatus["Present"] = "Present";
+    attendanceStatus["Leave"] = "Leave";
+})(attendanceStatus || (attendanceStatus = {}));
+class ContractEmployee {
+    constructor(id, name, email) {
+        this.attendanceRecord = [];
+        this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+    addAttendance(date, status) {
+        this.attendanceRecord.push([date, status]);
+    }
+    getAttendance() {
+        return this.attendanceRecord;
+    }
+    payrollCalculation() {
+        const dailyWage = 360;
+        const presentDays = this.attendanceRecord.filter(([_, status]) => status === attendanceStatus.Present).length;
+        return presentDays * dailyWage;
+    }
+}
+const emp = new ContractEmployee(1, "Vishnu J S", "vjs@example.com");
+emp.addAttendance("2025-06-24", attendanceStatus.Present);
+emp.addAttendance("2025-06-25", attendanceStatus.Leave);
+emp.addAttendance("2025-06-26", attendanceStatus.Present);
+console.log("Attendance Records:", emp.getAttendance());
+console.log("Total Payroll: ₹", emp.payrollCalculation());
